@@ -3,6 +3,8 @@ import { ThemeProvider } from "next-themes";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/layout/siebard";
 import SiteHeader from "@/components/layout/header";
+import { Toaster } from "@/components/ui/toaster"
+
 import "./globals.css";
 
 
@@ -37,6 +39,7 @@ export default function RootLayout({
         >
           <SidebarProvider>
             <AppSidebar variant="inset" />
+            <Toaster />
             <SidebarInset>
               <SiteHeader />
               <div className="flex flex-1 flex-col">

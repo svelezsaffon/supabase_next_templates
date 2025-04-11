@@ -57,63 +57,18 @@ const ShowCards = () =>{
           </ChartContainer>
         </CardContent>
         <CardFooter>
-          Sales per week
+        <Button
+      onClick={() => {
+        toast({
+          title: "Scheduled: Catch up",
+          description: "Friday, February 10, 2023 at 5:57 PM",
+        })
+      }}
+    >
+      Show Toast
+    </Button>
         </CardFooter>
       </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-            <BarChart accessibilityLayer data={chartData}>
-              <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-              <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-            </BarChart>
-          </ChartContainer>
-        </CardContent>
-        <CardFooter>
-          Sales per week
-        </CardFooter>
-      </Card>
-
-            <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-            <BarChart accessibilityLayer data={chartData}>
-              <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-              <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-            </BarChart>
-          </ChartContainer>
-        </CardContent>
-        <CardFooter>
-          Sales per week
-        </CardFooter>
-      </Card>
-
-            <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-            <BarChart accessibilityLayer data={chartData}>
-              <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-              <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-            </BarChart>
-          </ChartContainer>
-        </CardContent>
-        <CardFooter>
-          Sales per week
-        </CardFooter>
-      </Card>      
 
     </div>
   )
