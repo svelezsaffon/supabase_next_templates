@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { ThemeSwitcher } from "../theme-switcher"
 
 const NavMain = ({
   items,
@@ -51,6 +52,7 @@ const NavMain = ({
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
+          <ThemeSwitcher/>
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
