@@ -23,16 +23,15 @@ import { NavDocuments } from "./nav-documents"
 import NavMain from "./nav-main"
 import { NavSecondary } from "./nav-secondary"
 
-
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { useSession } from "../context/session"
 
 const data = {
   user: {
@@ -152,7 +151,12 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const session = useSession()
+  if(!session.user){
+    return null
+  }
   return (
+
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
         <SidebarMenu>
