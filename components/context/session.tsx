@@ -9,6 +9,7 @@ type SessionContextType = {
     user?:User;
     logout:()=>void;
     setUser:React.Dispatch<React.SetStateAction<User | undefined>>
+    refresh:()=>void;
 }
 
 const SessionContext = createContext<SessionContextType|undefined>(undefined)
@@ -46,7 +47,7 @@ const SessionProvider =({children}:PropsWithChildren) =>{
     getUserData()
   },[supabase])
 
-  const sessionContextMemo = useMemo<SessionContextType>(()=>({user,logout,setUser}),[user?.id])
+  const sessionContextMemo = useMemo<SessionContextType>(()=>({user,logout,setUser,refresh:getUserData}),[user])
 
   return (
     <SessionContext.Provider value={sessionContextMemo}>

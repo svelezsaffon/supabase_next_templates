@@ -63,7 +63,7 @@ export function HeaderUser(){
               <AvatarFallback className="rounded-lg">{session.user.email?.slice(0,2)}</AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="truncate font-medium">Usuario</span>
+              <span className="truncate font-medium">{session.user.user_metadata['name']||'Nombre'}</span>
               <span className="truncate text-xs text-muted-foreground">
               {cleanMail(session.user?.email)}
               </span>
@@ -84,7 +84,7 @@ export function HeaderUser(){
                 <AvatarFallback className="rounded-lg">{session.user.email?.slice(0,2)}</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">Usuario</span>
+                <span className="truncate font-medium">{session.user.user_metadata['name']||'Nombre'}</span>
                 <span className="truncate text-xs text-muted-foreground">
                   {session.user.email}
                 </span>
@@ -93,7 +93,9 @@ export function HeaderUser(){
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={()=>{
+              router.push('/protected/auth/account')
+            }}>
               <UserCircleIcon />
               Account
             </DropdownMenuItem>
