@@ -4,7 +4,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/layout/siebard";
 import SiteHeader from "@/components/layout/header";
 import { Toaster } from "@/components/ui/toaster"
-
+import SessionProvider from "@/components/context/session";
 import "./globals.css";
 
 
@@ -37,20 +37,22 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>
-            <AppSidebar variant="inset" />
-            <Toaster />
-            <SidebarInset>
-              <SiteHeader />
-              <div className="flex flex-1 flex-col">
-                <div className="@container/main flex flex-1 flex-col gap-2">
-                  <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6 items-center">
-                    {children}
+          <SessionProvider>
+            <SidebarProvider>
+              <AppSidebar variant="inset" />
+              <Toaster />
+              <SidebarInset>
+                <SiteHeader />
+                <div className="flex flex-1 flex-col">
+                  <div className="@container/main flex flex-1 flex-col gap-2">
+                    <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6 items-center">
+                      {children}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SidebarInset>
-          </SidebarProvider>
+              </SidebarInset>
+            </SidebarProvider>
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>

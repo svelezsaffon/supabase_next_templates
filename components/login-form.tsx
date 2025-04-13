@@ -15,6 +15,8 @@ import { Label } from '@/components/ui/label'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { useSession } from './context/session'
+import { User } from '@supabase/supabase-js'
 
 export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
   const [email, setEmail] = useState('')
@@ -22,6 +24,7 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const session=useSession()
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -30,12 +33,13 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
     setError(null)
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const {data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       })
       if (error) throw error
       // Update this route to redirect to an authenticated route. The user already has an active session.
+      session.setUser(data.user as User)
       router.push('/protected')
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : 'An error occurred')

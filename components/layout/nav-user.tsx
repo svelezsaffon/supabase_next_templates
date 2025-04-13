@@ -26,7 +26,7 @@ import {
 import {
   SidebarMenuButton
 } from "@/components/ui/sidebar"
-
+import { useSession } from "../context/session"
 
 export function HeaderUser({
   user,
@@ -37,6 +37,11 @@ export function HeaderUser({
     avatar: string
   }
 }){
+  const session = useSession()
+
+  if(!session){
+    return null
+  }
   return (
       <DropdownMenu >
         <DropdownMenuTrigger asChild className="group inline-flex h-9 w-max items-center justify-center px-4 py-2">
@@ -93,9 +98,9 @@ export function HeaderUser({
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={session.logout}>
             <LogOutIcon />
-            Log out
+            Log out            
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
