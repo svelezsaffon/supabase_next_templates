@@ -30,6 +30,14 @@ import { useSession } from "../context/session"
 import { Button } from "../ui/button"
 import { useRouter } from 'next/navigation'
 
+function cleanMail(mail?:string){
+  if(!mail){
+    return ':O'
+  }
+
+  return `${mail.slice(0,6)}...${mail.slice(-6)}`
+}
+
 export function HeaderUser(){
   const session = useSession()
   const router = useRouter()
@@ -57,7 +65,7 @@ export function HeaderUser(){
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-medium">Usuario</span>
               <span className="truncate text-xs text-muted-foreground">
-              {session.user?.email}
+              {cleanMail(session.user?.email)}
               </span>
             </div>
             <MoreVerticalIcon className="ml-auto size-4" />
