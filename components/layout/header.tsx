@@ -43,13 +43,7 @@ const SiteHeader =() => {
           <LinkItem href="/">
             About
           </LinkItem>
-          {session?.user &&(
-              <HeaderUser user={{
-                name: "Santiago Velez",
-                email: session.user.email ||'my email',
-                avatar: ""
-            }} />
-          )}
+          <HeaderUser/>
       </div>      
       </div>
     </header>
