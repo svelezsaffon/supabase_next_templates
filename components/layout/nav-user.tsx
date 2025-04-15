@@ -32,12 +32,12 @@ import { useRouter } from 'next/navigation'
 import { ThemeSwitcher } from "../theme-switcher"
 import { SelectLanguage } from "../context/language"
 
-function cleanMail(mail?:string){
+function shortString(mail?:string,length:number=6){
   if(!mail){
     return ':O'
   }
 
-  return `${mail.slice(0,6)}...${mail.slice(-6)}`
+  return `${mail.slice(0,length)}...${mail.slice(-length)}`
 }
 
 export function HeaderUser(){
@@ -67,7 +67,7 @@ export function HeaderUser(){
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-medium">{session.user.user_metadata['name']||'Nombre'}</span>
               <span className="truncate text-xs text-muted-foreground">
-              {cleanMail(session.user?.email)}
+              {shortString(session.user?.email,6)}
               </span>
             </div>
             <MoreVerticalIcon className="ml-auto size-4" />
@@ -100,17 +100,7 @@ export function HeaderUser(){
             }}>
               <UserCircleIcon />
               Account
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <CreditCardIcon />
-              Billing
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <BellIcon />
-              Notifications
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-            </DropdownMenuItem>            
+            </DropdownMenuItem>       
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
