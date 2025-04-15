@@ -46,11 +46,18 @@ export function HeaderUser(){
 
   if(!session.user){
     return(
-      <Button onClick={()=>{
-        router.push('/auth/login')
-      }}>
-        Login
-      </Button>
+      <div className="flex gap-2">
+        <Button onClick={()=>{
+          router.push('/auth/login')
+        }}>
+          Login
+        </Button>
+        <Button onClick={()=>{
+          router.push('/auth/sign-up')
+        }}>
+          Sign Up
+        </Button>        
+      </div>
     )
   }
   return (
