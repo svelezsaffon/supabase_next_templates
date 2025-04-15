@@ -17,6 +17,9 @@
             "name":{
                 "heading":"Nombre"
             }
+        },
+        "button":{
+            "submit":"Actualizar"
         }
     },
     "en":{
@@ -37,6 +40,9 @@
             "name":{
                 "heading":"Name"
             }
-        }        
+        },
+        "button":{
+            "submit":"Submit"
+        }
     }
 }

@@ -86,7 +86,7 @@ const MetadataForm = () => {
                     </FormItem>
                     )}
                 />
-                <Button type="submit">Submit</Button>
+                <Button type="submit">{messages[language.lang].button.submit}</Button>
             </form>
         </Form>
     )
