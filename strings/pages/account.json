@@ -1,0 +1,42 @@
+{
+    "es":{
+        "error":{
+            "name":"Por favor digite su nombre"
+        },
+        "success":{
+            "name":"El nombre ha sido actualizado"
+        },
+        "title":{
+            "name":{
+                "h1":"Tu Nombre",
+                "subheding":"Digita tu nombre para ser actualizado",
+                "description":"Este sera el nombre que esta publico"
+            }
+        },
+        "fields":{
+            "name":{
+                "heading":"Nombre"
+            }
+        }
+    },
+    "en":{
+        "error":{
+            "name":"Please provide your name"
+        },
+        "success":{
+            "name":"Name has been updated"
+        },
+        "title":{
+            "name":{
+                "h1":"Your Name",
+                "subheding":"Please enter your new password below",
+                "description":"This is your public display name"
+            }
+        },
+        "fields":{
+            "name":{
+                "heading":"Name"
+            }
+        }        
+    }
+}

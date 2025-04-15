@@ -10,7 +10,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { ThemeSwitcher } from "../theme-switcher"
 
 export function NavSecondary({
   items,
@@ -36,7 +35,6 @@ export function NavSecondary({
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
-          <ThemeSwitcher/>
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

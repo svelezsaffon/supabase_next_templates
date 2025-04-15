@@ -5,6 +5,7 @@ import { AppSidebar } from "@/components/layout/siebard";
 import SiteHeader from "@/components/layout/header";
 import { Toaster } from "@/components/ui/toaster"
 import SessionProvider from "@/components/context/session";
+import LanguageProvider from "@/components/context/language";
 import "./globals.css";
 
 
@@ -39,6 +40,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <LanguageProvider>
           <SessionProvider>
             <SidebarProvider>
               <AppSidebar variant="inset" />
@@ -46,15 +48,14 @@ export default function RootLayout({
               <SidebarInset>
                 <SiteHeader />
                 <div className="flex flex-1 flex-col">
-                  <div className="@container/main flex flex-1 flex-col gap-2">
-                    <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6 items-center">
-                      {children}
-                    </div>
+                  <div className="@container/main md:gap-6 md:py-6 p-4">
+                    {children}
                   </div>
                 </div>
               </SidebarInset>
             </SidebarProvider>
           </SessionProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

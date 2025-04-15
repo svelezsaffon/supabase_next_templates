@@ -29,6 +29,8 @@ import {
 import { useSession } from "../context/session"
 import { Button } from "../ui/button"
 import { useRouter } from 'next/navigation'
+import { ThemeSwitcher } from "../theme-switcher"
+import { SelectLanguage } from "../context/language"
 
 function cleanMail(mail?:string){
   if(!mail){
@@ -107,6 +109,16 @@ export function HeaderUser(){
               <BellIcon />
               Notifications
             </DropdownMenuItem>
+            <DropdownMenuItem>
+            </DropdownMenuItem>            
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <SelectLanguage/>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <ThemeSwitcher/>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={session.logout}>
