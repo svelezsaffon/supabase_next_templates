@@ -1,10 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Laptop, Moon, PaletteIcon, Sun } from "lucide-react";
+import { Moon, PaletteIcon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Switch } from "@/components/ui/switch"
+
+const ICON_SIZE = 16;
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
@@ -19,19 +20,20 @@ const ThemeSwitcher = () => {
     return null;
   }
 
-  const ICON_SIZE = 16;
-
   return (
     <div className="flex w-full px-2 items-center justify-between">
-      <PaletteIcon size={ICON_SIZE}/>
-      <div className="relative flex cursor-default select-none items-center gap-2 rounded-sm p-2 text-sm">
-          <Switch checkedIcon={<Moon/>} uncheckedIcon={<Sun/>} onCheckedChange={(a)=>{
-            if(a){
-              setTheme('dark')
-            }else{
-              setTheme('light')
-            }
+      <div className="relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 text-sm outline-none ">
+        <PaletteIcon size={ICON_SIZE}/>
+        <span>Theme</span>
+      </div>
+      <div className="flex items-center justify-between gap-2">
+          <Moon size={ICON_SIZE}/>
+          <Switch 
+            checked={theme === 'dark'}
+            onCheckedChange={(a)=>{
+              setTheme(a?'dark':'light')
           }}/>
+          <Sun size={ICON_SIZE}/>
         </div>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client"
 import {
-    LanguagesIcon
-  } from "lucide-react"
+    LanguagesIcon,
+} from "lucide-react"
 
 import { 
     createContext, 
@@ -10,7 +10,9 @@ import {
     useState, 
     useMemo 
 } from "react";
-import { Button } from "../ui/button";
+import { Switch } from "../ui/switch";
+import DynamicTextIcon from "../ui/dynamic-icon";
+
 
 type language="es" | "en"
 
@@ -48,30 +50,27 @@ const LanguageProvider =({children}:PropsWithChildren) =>{
 
 const ICON_SIZE = 16;
 
+
 export const SelectLanguage = () =>{
     const language=useLanguage()
 
-    return(
+    return (
         <div className="flex w-full px-2 items-center justify-between">
-            <LanguagesIcon size={ICON_SIZE} />
-            <div className="relative flex cursor-default select-none items-center gap-2 rounded-sm p-2 text-sm">
-                <Button
-                    size="sm"
-                    variant={language.lang==="es"?"default":"secondary"} 
-                    onClick={()=>{language.setLanguage("es")}}
-                >
-                    Es
-                </Button>
-                <Button 
-                    size="sm"
-                    variant={language.lang==="en"?"default":"secondary"} 
-                    onClick={()=>{language.setLanguage("en")}}
-                >
-                    En
-                </Button>
+            <div className="relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 text-sm outline-none ">
+                <LanguagesIcon size={ICON_SIZE}/>
+                <span>Language</span>
+            </div>
+            <div className="flex items-center justify-between gap-2">
+                <DynamicTextIcon text="Es" size={ICON_SIZE}/>
+                <Switch 
+                    checked={language.lang === 'es'}
+                    onCheckedChange={(a)=>{
+                    language.setLanguage(a?'es':'en')
+                }}/>
+                    <DynamicTextIcon text="En" size={ICON_SIZE}/>
             </div>
         </div>
-    )
+      );
 }
 
 export default LanguageProvider
