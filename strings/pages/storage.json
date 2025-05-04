@@ -1,0 +1,12 @@
+{
+    "es":{
+        "buttons":{
+            "create":"Create Carpeta"
+        }
+    },
+    "en":{
+        "buttons":{
+            "create":"Create Bucket"
+        }
+    }
+}

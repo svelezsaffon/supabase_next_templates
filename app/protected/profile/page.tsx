@@ -1,4 +1,3 @@
-import { UpdatePasswordForm } from '@/components/update-password-form'
 
 const ProfilePage = () => {
   return (

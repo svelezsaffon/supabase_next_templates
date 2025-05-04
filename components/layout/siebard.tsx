@@ -5,13 +5,11 @@ import {
   ArrowUpCircleIcon,
   BarChartIcon,
   CameraIcon,
-  ClipboardListIcon,
-  DatabaseIcon,
   FileCodeIcon,
-  FileIcon,
   FileTextIcon,
   FolderIcon,
   HelpCircleIcon,
+  ImagesIcon,
   LayoutDashboardIcon,
   ListIcon,
   SearchIcon,
@@ -19,7 +17,7 @@ import {
   UsersIcon,
 } from "lucide-react"
 
-import { NavDocuments } from "./nav-documents"
+import { NavImagePage } from "./nav-images"
 import NavMain from "./nav-main"
 import { NavSecondary } from "./nav-secondary"
 
@@ -131,21 +129,11 @@ const data = {
       icon: SearchIcon,
     },
   ],
-  documents: [
+  photos: [
     {
-      name: "Data Library",
-      url: "#",
-      icon: DatabaseIcon,
-    },
-    {
-      name: "Reports",
-      url: "#",
-      icon: ClipboardListIcon,
-    },
-    {
-      name: "Word Assistant",
-      url: "#",
-      icon: FileIcon,
+      name: "Libreria de Fotos",
+      url: "/protected/storage",
+      icon: ImagesIcon,
     },
   ],
 }
@@ -175,7 +163,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
+        <NavImagePage items={data.photos} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
     </Sidebar>

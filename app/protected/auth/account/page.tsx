@@ -1,5 +1,6 @@
 "use client"
 
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { useSession } from '@/components/context/session'
 import { useLanguage } from '@/components/context/language'
