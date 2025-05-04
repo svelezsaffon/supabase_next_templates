@@ -1,10 +1,21 @@
+import Hero from "@/components/landing/Hero";
+import Features from "@/components/landing/Features";
+import HowItWorks from "@/components/landing/HowItWorks";
+import Testimonials from "@/components/landing/Testimonials";
+import CTASection from "@/components/landing/CTASection";
 
-export default async function Home() {
+const Index = () => {
   return (
-    <>
-      <main className="flex-1 flex flex-col gap-6 px-4">
-        Hello
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow gap-4">
+        <Hero />
+        <Features />
+        <HowItWorks />
+        <Testimonials />
+        <CTASection />
       </main>
-    </>
+    </div>
   );
-}
+};
+
+export default Index;
