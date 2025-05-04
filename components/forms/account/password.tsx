@@ -58,7 +58,7 @@ const PasswordForm = () => {
                         description: messages[language.lang].success.name,
                     })                    
                 }                
-            } catch (error: unknown) {
+            } catch {
                 
                 toast({
                     title: "Scheduled: Catch up",

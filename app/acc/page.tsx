@@ -8,14 +8,12 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-import { Progress } from "@/components/ui/progress"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 import { Bar, BarChart } from "recharts"
  
-import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart"
+import { ChartContainer } from "@/components/ui/chart"
 import { type ChartConfig } from "@/components/ui/chart"
-import { ChartAreaInteractive } from "@/components/layout/chart-area-interactive"
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
